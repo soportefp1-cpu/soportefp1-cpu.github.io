@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Alimentos Mary — Más de 60 años produciendo harinas, arroz, pastas, aceites y galletas de calidad para la familia venezolana. Tradición, innovación y compromiso.">
+<title>Alimentos Mary — Alimentamos un país</title>
+<link rel="icon" href="img/icon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ──── NAV ──── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')" style="cursor: pointer;">
+      <a href="index.html">
+        <img src="img/logo.png" alt="Alimentos Mary">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home'); scrollToSection('about')">Nosotros</a></li>
+      <li><a onclick="showPage('home'); scrollToSection('trayectoria')">Trayectoria</a></li>
+      <li><a onclick="showPage('home'); scrollToSection('plantas')">Nuestras Plantas</a></li>
+      <li><a onclick="showPage('home'); scrollToSection('novedades')">Novedades</a></li>
+      <li><a onclick="showPage('home'); scrollToSection('contact')">Contacto</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('about'),300)">Nosotros</a>
+  <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('trayectoria'),300)">Trayectoria</a>
+  <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('plantas'),300)">Nuestras Plantas</a>
+  <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('novedades'),300)">Novedades</a>
+  <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('contact'),300)">Contacto</a>
+</div>
+
+<!-- ════════════════════════════════ HOME PAGE ════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO VIDEO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="img/mary.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Tradición Venezolana desde 1963</div>
+      <img src="img/logan.png" alt="Juntos Alimentamos a un País" class="hero-eslogan">
+      <p class="hero-tagline">Más de 60 años produciendo alimentos de calidad para la mesa venezolana. Tradición, innovación y compromiso en cada producto.</p>
+      <div class="hero-cta-row">
+        <span class="btn-red" onclick="scrollToSection('productos-link')">Ver Productos</span>
+        <span class="btn-outline-white" onclick="scrollToSection('about')">Nuestra Historia</span>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <div class="hero-scroll-txt">Descubrir</div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="red-strip" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-item">Harinas<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Arroz Seleccionado<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Aceites Premium<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Pastas<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Granos<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Galletas Caledonia<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Certificación ISO 9001:2015<span class="ticker-dot"></span></div>
+      <div class="ticker-item">60+ Años Alimentando Venezuela<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Harinas<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Arroz Seleccionado<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Aceites Premium<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Pastas<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Granos<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Galletas Caledonia<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Certificación ISO 9001:2015<span class="ticker-dot"></span></div>
+      <div class="ticker-item">60+ Años Alimentando Venezuela<span class="ticker-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images reveal">
+          <div class="about-img-main">
+            <img src="img/intro/intro1.jpg" alt="Planta Alimentos Mary" loading="lazy">
+          </div>
+          <div class="about-img-sm">
+            <img src="img/intro/intro2.jpg" alt="Producción Mary" style="height:100%;" loading="lazy">
+          </div>
+          <div class="about-img-sm">
+            <img src="img/intro/intro3.jpg" alt="Alimentos Mary" style="height:100%;object-fit:contain;background:#f8f5f0;padding:16px;" loading="lazy">
+          </div>
+          <div class="about-badge">
+            <span class="y">+60</span>
+            <span class="lbl">Años</span>
+          </div>
+        </div>
+        <div class="about-text reveal" style="transition-delay:.2s">
+          <span class="section-label">Filosofía de Gestión</span>
+          <h2 class="section-title">Un legado de<br>sabor y familia</h2>
+          <div class="mvv-cards" style="grid-template-columns:1fr 1fr;margin-bottom:20px">
+            <div class="mvv-card" style="grid-column:span 2">
+              <h4>Misión</h4>
+              <p style="text-align:justify">Elaboramos y comercializamos alimentos adaptados a las necesidades de nuestros consumidores. Lo hacemos con pasión y eficiencia, contribuyendo al bienestar de nuestra gente y la familia venezolana, promoviendo una cultura organizacional basada en nuestros valores fundamentales.</p>
+            </div>
+            <div class="mvv-card" style="grid-column:span 2">
+              <h4>Visión</h4>
+              <p style="text-align:justify">Consolidarnos como un grupo empresarial de alimentos altamente competitivo, líder en innovación y capacidad de respuesta, anticipando tendencias y superando las expectativas del consumidor mediante soluciones integrales, confiables y relevantes.</p>
+            </div>
+          </div>
+          <div class="mvv-cards" style="grid-template-columns:repeat(3,1fr)">
+            <div class="mvv-card">
+              <h4>Respeto</h4>
+              <p>Atendemos y consideramos a las personas y organizaciones con las que nos relacionamos.</p>
+            </div>
+            <div class="mvv-card">
+              <h4>Trabajo en Equipo</h4>
+              <p>Sumamos esfuerzos individuales generando sinergias hacia el logro de objetivos comunes.</p>
+            </div>
+            <div class="mvv-card">
+              <h4>Perseverancia</h4>
+              <p>Nos esforzamos continuamente para conseguir las metas y objetivos que nos trazamos.</p>
+            </div>
+            <div class="mvv-card">
+              <h4>Calidad</h4>
+              <p>Mantenemos los estándares establecidos en cada producto y servicio para satisfacer las necesidades de nuestros consumidores.</p>
+            </div>
+            <div class="mvv-card">
+              <h4>Honestidad</h4>
+              <p>Actuamos de manera íntegra y honrada, alineada con los principios morales y dentro del marco legal.</p>
+            </div>
+            <div class="mvv-card">
+              <h4>Confianza</h4>
+              <p>Creemos en la capacidad de las personas y nuestro equipo de actuar de manera responsable y oportuna.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE DE TRAYECTORIA -->
+  <section class="trayectoria" id="trayectoria">
+    <div class="container">
+      <div class="tray-header reveal">
+        <span class="section-label">Enfoque de Trayectoria</span>
+        <h2 class="section-title">Nuestra historia<br>en cifras</h2>
+        <p class="section-sub">Décadas de compromiso con la seguridad alimentaria de la familia venezolana.</p>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card reveal">
+          <div class="m-num" data-target="18620" data-suffix="">0</div>
+          <div class="m-label">Puntos de venta<br>a nivel nacional</div>
+        </div>
+        <div class="metric-card reveal" style="transition-delay:.1s">
+          <div class="m-num" data-target="1689" data-suffix="">0</div>
+          <div class="m-label">Colaboradores comprometidos<br>con el país</div>
+        </div>
+        <div class="metric-card reveal" style="transition-delay:.2s">
+          <div class="m-num" data-target="1463" data-suffix="">0</div>
+          <div class="m-label">Innovaciones constantes<br>adaptadas al gusto local</div>
+        </div>
+        <div class="metric-card reveal" style="transition-delay:.3s">
+          <div class="m-num" data-target="60" data-suffix="+">0</div>
+          <div class="m-label">Años de estabilidad y<br>confianza en Venezuela</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRAS PLANTAS -->
+  <section class="plantas-section" id="plantas">
+    <div class="container">
+      <div class="plantas-header reveal">
+        <span class="section-label">Nuestras Plantas</span>
+        <h2 class="section-title">Grupo Empresarial<br>Alimentos Mary</h2>
+        <p class="section-sub">Nuestras empresas venezolanas que forman parte del Grupo Empresarial Alimentos Mary, produciendo con excelencia para todo el país.</p>
+      </div>
+      <div class="plantas-grid">
+        <div class="planta-card reveal" style="transition-delay:.3s" onclick="showPage('planta-ianca')">
+          <div class="planta-logo"><img src="img/plantas/ianca.png" alt="IANCA" loading="lazy"></div>
+          <div class="planta-name">IANCA</div>
+          <div class="planta-desc">Empresa venezolana clave en el sector agrícola, parte del grupo familiar Alimentos Mary. Comprometida con la agricultura nacional.</div>
+          <span class="planta-link">Ver más</span>
+        </div>
+        <div class="planta-card reveal" onclick="showPage('planta-mary')">
+          <div class="planta-logo"><img src="img/plantas/mary.png" alt="Mary Iancarina" loading="lazy"></div>
+          <div class="planta-name">Mary Iancarina</div>
+          <div class="planta-desc">Importante empresa agroindustrial venezolana, pilar del Grupo Empresarial Mary. Especializada en la producción de harinas y derivados.</div>
+          <span class="planta-link">Ver más</span>
+        </div>
+        <div class="planta-card reveal" style="transition-delay:.2s" onclick="showPage('planta-corisa')">
+          <div class="planta-logo"><img src="img/plantas/corisa.png" alt="CORISA" loading="lazy"></div>
+          <div class="planta-name">CORISA</div>
+          <div class="planta-desc">Empresa clave del grupo agroindustrial Alimentos Mary, especializada en el procesamiento y empaque de arroz blanco de alta calidad.</div>
+          <span class="planta-link">Ver más</span>
+        </div>
+        <div class="planta-card reveal" style="transition-delay:.4s" onclick="showPage('planta-inalsa')">
+          <div class="planta-logo"><img src="img/plantas/inalsa.png" alt="INALSA" loading="lazy"></div>
+          <div class="planta-name">INALSA</div>
+          <div class="planta-desc">Empresa manufacturera situada en el estado Lara, Venezuela, parte del grupo Alimentos Mary. Certificada ISO 9001:2015.</div>
+          <span class="planta-link">Ver más</span>
+        </div>
+        <div class="planta-card reveal" style="transition-delay:.1s" onclick="showPage('planta-amapola')">
+          <div class="planta-logo"><img src="img/plantas/amapola.png" alt="Industrias Amapola" loading="lazy"></div>
+          <div class="planta-name">Industrias Amapola</div>
+          <div class="planta-desc">Empresa venezolana fabricante de galletas que forma parte del Grupo Empresarial Alimentos Mary desde 2008.</div>
+          <span class="planta-link">Ver más</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRAS MARCAS -->
+  <section class="marcas-section">
+    <div class="container">
+      <div class="marcas-header reveal">
+        <span class="section-label">Nuestras Marcas</span>
+        <h2 class="section-title">Conoce nuestras marcas líderes</h2>
+        <p class="section-sub" style="margin:0 auto">Haz clic en cada marca para conocer más sobre su portafolio de productos.</p>
+      </div>
+      <div class="marcas-grid">
+        <a class="marca-card reveal" href="" target="_blank" title="Mary — En construcción">
+          <img src="img/marcas/MARY.png" alt="Mary" loading="lazy">
+          <span class="marca-card-label">Visitar sitio web</span>
+        </a>
+        <a class="marca-card reveal" style="transition-delay:.15s" href="" target="_blank" title="Caledonia — En construcción">
+          <img src="img/marcas/CALEDONIA.png" alt="Caledonia" loading="lazy">
+          <span class="marca-card-label">Visitar sitio web</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES -->
+  <section class="novedades-section" id="novedades">
+    <div class="container">
+      <div class="novedades-header">
+        <div class="reveal">
+          <span class="section-label">Novedades</span>
+          <h2 class="section-title">Lo más reciente<br>de Alimentos Mary</h2>
+        </div>
+      </div>
+      <div class="novedades-grid">
+        <div class="novedad-card reveal" onclick="showPage('news-iso')">
+          <div class="novedad-img-wrap">
+            <img class="novedad-img" src="img/novedades/iso.jpg" alt="Certificación ISO" loading="lazy">
+          </div>
+          <div class="novedad-body">
+            <span class="novedad-tag">Calidad</span>
+            <div class="novedad-title">Elevamos nuestro estándar con la Certificación ISO 9001:2015</div>
+            <div class="novedad-excerpt">En un paso decisivo para consolidar nuestro liderazgo en la industria de alimentos, INALSA anuncia la obtención de la certificación internacional ISO 9001:2015, otorgada por FONDONORMA e IQNET.</div>
+            <span class="novedad-link">Leer noticia</span>
+          </div>
+        </div>
+        <div class="novedad-card reveal" style="transition-delay:.15s" onclick="showPage('news-pastora')">
+          <div class="novedad-img-wrap">
+            <img class="novedad-img" src="img/novedades/cale.jpg" alt="Divina Pastora" loading="lazy">
+          </div>
+          <div class="novedad-body">
+            <span class="novedad-tag">Comunidad</span>
+            <div class="novedad-title">Día de la Divina Pastora: ¡Juntos con fe y esperanza!</div>
+            <div class="novedad-excerpt">Nos reunimos para honrar y acompañar nuestra fe en el marco de la Procesión por la Divina Pastora, compartiendo con nuestros colaboradores y sus familias.</div>
+            <span class="novedad-link">Leer noticia</span>
+          </div>
+        </div>
+        <div class="novedad-card reveal" style="transition-delay:.3s" onclick="showPage('news-momentos')">
+          <div class="novedad-img-wrap">
+            <img class="novedad-img" src="img/novedades/momen.jpg" alt="María Momentos" style="object-fit:contain;background:#f8f5f0;padding:20px;" loading="lazy">
+          </div>
+          <div class="novedad-body">
+            <span class="novedad-tag">Lanzamiento</span>
+            <div class="novedad-title">Galletas Caledonia reinventa lo clásico con la Línea María Momentos</div>
+            <div class="novedad-excerpt">Una apuesta disruptiva y sensorial: la nueva Línea María Momentos transforma el estándar de la galletería tradicional hacia una experiencia de sabores.</div>
+            <span class="novedad-link">Leer noticia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="section-label">Contacto</span>
+          <h2 class="section-title" style="color:var(--white)">Hablemos de<br>lo que necesitas</h2>
+          <div class="contact-info" style="margin-top:32px">
+            <div class="c-item">
+              <div class="c-icon">📧</div>
+              <div class="c-item-text">
+                <strong>Correo Electrónico</strong>
+                <span>info@alimentosmary.com</span>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">🕐</div>
+              <div class="c-item-text">
+                <strong>Horario</strong>
+                <span>Lunes a Viernes: 8:00 AM – 5:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:.2s">
+          <form class="c-form" id="contactForm" onsubmit="return false" novalidate>
+            <div class="c-row">
+              <div class="c-group">
+                <label for="cf-nombre">Nombre <span style="color:#E57373">*</span></label>
+                <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre completo" maxlength="80" autocomplete="name">
+                <span class="c-error" id="err-nombre"></span>
+              </div>
+              <div class="c-group">
+                <label for="cf-email">Correo Electrónico <span style="color:#E57373">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="correo@ejemplo.com" maxlength="120" autocomplete="email">
+                <span class="c-error" id="err-email"></span>
+              </div>
+            </div>
+            <div class="c-group">
+              <label for="cf-asunto">Asunto <span style="color:#E57373">*</span></label>
+              <input type="text" id="cf-asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" maxlength="100">
+              <span class="c-char-count" id="char-asunto">0 / 100</span>
+              <span class="c-error" id="err-asunto"></span>
+            </div>
+            <div class="c-group">
+              <label for="cf-mensaje">Mensaje <span style="color:#E57373">*</span></label>
+              <textarea id="cf-mensaje" name="mensaje" placeholder="Cuéntanos más sobre tu consulta..." maxlength="1200"></textarea>
+              <span class="c-char-count" id="char-mensaje">0 / 1200</span>
+              <span class="c-error" id="err-mensaje"></span>
+            </div>
+            <!-- Estado del envío -->
+            <div id="form-status" style="display:none"></div>
+            <button class="c-submit" id="cf-btn" type="button" onclick="submitContactForm()">Enviar Mensaje →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/logo.png" alt="Alimentos Mary">
+          <p>Más de 60 años llevando calidad, nutrición y tradición a la mesa venezolana. Orgullo de Venezuela.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a onclick="scrollToSection('about')">Sobre Nosotros</a></li>
+            <li><a onclick="scrollToSection('trayectoria')">Trayectoria</a></li>
+            <li><a onclick="scrollToSection('novedades')">Novedades</a></li>
+            <li><a onclick="scrollToSection('contact')">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Nuestras Plantas</h5>
+          <ul>
+            <li><span onclick="showPage('planta-ianca')">IANCA</span></li>
+            <li><span onclick="showPage('planta-mary')">Mary Iancarina</span></li>
+            <li><span onclick="showPage('planta-corisa')">CORISA</span></li>
+            <li><span onclick="showPage('planta-inalsa')">INALSA</span></li>
+            <li><span onclick="showPage('planta-amapola')">Industrias Amapola</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Novedades</h5>
+          <ul>
+            <li><span onclick="showPage('news-iso')">Certificación ISO 9001</span></li>
+            <li><span onclick="showPage('news-pastora')">Día Divina Pastora</span></li>
+            <li><span onclick="showPage('news-momentos')">Línea María Momentos</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p >&copy; <script>document.write(new Date().getFullYear())</script> - <a href="https://www.linkedin.com/company/alimentos-mary/posts/?feedView=all" target="_blank">Alimentos Mary</a> ~ Todos los derechos reservados.</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/company/alimentos-mary" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════ PLANTA PAGES ════════════════════════════════ -->
+
+<!-- MARY IANCARINA -->
+<div id="page-planta-mary" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--red);padding:60px 0 50px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('plantas'),200)">Nuestras Plantas</div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div>
+            <img src="img/plantas/MARY1.png" alt="Mary Iancarina" style="height:125px">
+            <div class="inner-page-sub">Empresa agroindustrial venezolana, pilar del Grupo Empresarial Mary</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="planta-page-grid">
+          <div>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              <strong style="color:var(--text)">Mary Iancarina</strong> es una importante empresa agroindustrial venezolana, pilar fundamental del Grupo Empresarial Mary. Con décadas de operación en el sector de alimentos, ha sido una de las principales fuerzas productoras de harinas, pastas y productos derivados que llegan a los hogares venezolanos.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              Su infraestructura de vanguardia y su talento humano comprometido garantizan procesos de producción de primer nivel, alineados con los más exigentes estándares internacionales de calidad e inocuidad alimentaria.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);text-align:justify">
+              Mary Iancarina es el corazón productivo del grupo, contribuyendo significativamente a la seguridad alimentaria del país con productos de alta calidad nutricional que forman parte de la dieta diaria de millones de venezolanos.
+            </p>
+            <div class="planta-facts">
+              <div class="fact-item"><strong>Sector</strong><span>Agroindustrial</span></div>
+              <div class="fact-item"><strong>Grupo</strong><span>Alimentos Mary</span></div>
+              <div class="fact-item"><strong>Especialidad</strong><span>Harinas y derivados</span></div>
+              <div class="fact-item"><strong>Alcance</strong><span>Nacional</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="planta-page-img" style="margin-bottom:20px">
+              <img src="img/plantas/mary/mary.png" alt="Mary Iancarina Planta" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span class="back-btn" style="color:rgba(255, 255, 255, 0.808);cursor:pointer" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- INDUSTRIAS AMAPOLA -->
+<div id="page-planta-amapola" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--red-dark);padding:60px 0 50px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('plantas'),200)">Nuestras Plantas</div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div>
+            <img src="img/plantas/AMAPOLA1.png" alt="Industrias Amapola" style="height:125px;">
+            <div class="inner-page-sub">Fabricante de galletas desde 2008, parte del Grupo Alimentos Mary</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="planta-page-grid">
+          <div>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              <strong style="color:var(--text)">Industrias Amapola C.A.</strong> es una empresa venezolana fabricante de galletas que forma parte del Grupo Empresarial Alimentos Mary desde el año 2008. Desde su incorporación al grupo, ha expandido su capacidad productiva y modernizado sus líneas de manufactura para ofrecer productos de alta calidad al mercado nacional.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              La empresa cuenta con tecnología de última generación en sus procesos de elaboración, garantizando consistencia, sabor y la más alta inocuidad en cada lote de producción. Sus galletas, bajo marcas como Caledonia, han conquistado el paladar de los venezolanos.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);text-align:justify">
+              El compromiso de Industrias Amapola con la calidad se refleja en su portafolio de productos que incluye galletas de distintos tipos y sabores, adaptados a las preferencias del consumidor venezolano moderno.
+            </p>
+            <div class="planta-facts">
+              <div class="fact-item"><strong>Fundación en el Grupo</strong><span>Año 2008</span></div>
+              <div class="fact-item"><strong>Sector</strong><span>Galletería</span></div>
+              <div class="fact-item"><strong>Marcas</strong><span>Caledonia, Tip-Top, Charmy</span></div>
+              <div class="fact-item"><strong>Distribución</strong><span>Nacional</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="planta-page-img">
+              <img src="img/plantas/amapola/amapola.jpg" alt="Industrias Amapola" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- CORISA -->
+<div id="page-planta-corisa" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--teal);padding:60px 0 50px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('plantas'),200)">Nuestras Plantas</div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div>
+            <img src="img/plantas/CORISA1.png" alt="CORISA" style="height:125px;">
+            <div class="inner-page-sub">Procesamiento y empaque de arroz blanco de alta calidad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="planta-page-grid">
+          <div>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              <strong style="color:var(--text)">CORISA</strong> es una empresa clave del grupo agroindustrial Alimentos Mary, especializada en el procesamiento y empaque de arroz blanco de alta calidad. Con modernas instalaciones y procesos tecnológicos avanzados, CORISA garantiza que cada grano de arroz que llega al hogar venezolano cumpla con los más altos estándares de calidad.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              La empresa cuenta con líneas de selección, limpieza y empaque automatizadas que aseguran la consistencia del producto final. Su compromiso con la agricultura venezolana se refleja en la selección cuidadosa de los mejores granos cultivados en el territorio nacional.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);text-align:justify">
+              CORISA distribuye sus productos a nivel nacional, siendo uno de los principales proveedores de arroz de la marca Mary, reconocida en todos los hogares venezolanos como símbolo de calidad y confianza.
+            </p>
+            <div class="planta-facts">
+              <div class="fact-item"><strong>Especialidad</strong><span>Arroz blanco</span></div>
+              <div class="fact-item"><strong>Proceso</strong><span>Selección y empaque</span></div>
+              <div class="fact-item"><strong>Origen</strong><span>Producción nacional</span></div>
+              <div class="fact-item"><strong>Distribución</strong><span>Nacional</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="planta-page-img">
+              <img src="img/plantas/corisa/corisa.png" alt="CORISA Planta">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- IANCA -->
+<div id="page-planta-ianca" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--green);padding:60px 0 50px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('plantas'),200)">Nuestras Plantas</div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div>
+            <img src="img/plantas/IANCA1.png" alt="IANCA" style="height:125px;">
+            <div class="inner-page-sub">Empresa venezolana clave en el sector agrícola</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="planta-page-grid">
+          <div>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              <strong style="color:var(--text)">IANCA</strong> es una empresa venezolana clave en el sector agrícola, parte integral del grupo familiar Alimentos Mary. Su contribución al grupo va más allá de la simple producción: IANCA representa el eslabón primario de la cadena productiva, asegurando el abastecimiento de materias primas de calidad superior.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              Con un enfoque profundamente comprometido con la agricultura venezolana, IANCA trabaja en estrecha colaboración con productores nacionales, fomentando buenas prácticas agrícolas y contribuyendo al desarrollo del campo venezolano como actor fundamental de la soberanía alimentaria del país.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);text-align:justify">
+              La empresa se destaca por su vocación de innovación en métodos de cultivo y por su compromiso con la sostenibilidad ambiental, garantizando procesos responsables que respetan el entorno natural venezolano.
+            </p>
+            <div class="planta-facts">
+              <div class="fact-item"><strong>Sector</strong><span>Agrícola</span></div>
+              <div class="fact-item"><strong>Rol en el Grupo</strong><span>Materia prima</span></div>
+              <div class="fact-item"><strong>Enfoque</strong><span>Agricultura nacional</span></div>
+              <div class="fact-item"><strong>Compromiso</strong><span>Soberanía alimentaria</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="planta-page-img">
+              <img src="img/plantas/ianca/maiz 2.jpg" alt="IANCA">
+            </div>
+            <div class="planta-page-img" style="margin-top:10px">
+              <img src="img/plantas/ianca/ianca.png" alt="IANCA">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- INALSA -->
+<div id="page-planta-inalsa" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--olive);padding:60px 0 50px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('plantas'),200)">Nuestras Plantas</div>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div>
+            <img src="img/plantas/INALSA1.png" alt="INALSA" style="height:125px;">
+            <div class="inner-page-sub">Certificada ISO 9001:2015 — Barquisimeto, Estado Lara</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="planta-page-grid">
+          <div>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              <strong style="color:var(--text)">INALSA</strong> es una empresa manufacturera situada en el estado Lara, Venezuela, parte integral del grupo Alimentos Mary. Recientemente ha alcanzado un hito histórico con la obtención de la <strong style="color:var(--teal)">Certificación Internacional ISO 9001:2015</strong>, otorgada por FONDONORMA e IQNET.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);margin-bottom:18px;text-align:justify">
+              Esta certificación avala que cada etapa de su operación —desde la recepción de materia prima hasta el despacho final— cumple con los protocolos internacionales de Gestión de la Calidad. INALSA tiene certificados los procesos de fabricación de harinas, sémolas, pastas y las galletas María que llegan a miles de hogares venezolanos.
+            </p>
+            <p style="font-size:1rem;line-height:1.82;color:var(--text-muted);text-align:justify">
+              Este logro es el resultado de meses de trabajo incansable, auditorías internas y el compromiso inquebrantable de toda la organización, posicionando a INALSA —junto a su planta hermana Amapola— como un bloque productivo blindado, confiable y competitivo a nivel global.
+            </p>
+            <div class="planta-facts">
+              <div class="fact-item"><strong>Ubicación</strong><span>Barquisimeto, Edo. Lara</span></div>
+              <div class="fact-item"><strong>Certificación</strong><span>ISO 9001:2015</span></div>
+              <div class="fact-item"><strong>Ente certificador</strong><span>FONDONORMA / IQNET</span></div>
+              <div class="fact-item"><strong>Productos</strong><span>Harinas, sémolas, pastas, galletas</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="planta-page-img">
+              <img src="img/plantas/inalsa/trigo.jpeg" alt="INALSA Barquisimeto">
+            </div>
+            <div class="planta-page-img" style="margin-top:10px">
+              <img src="img/plantas/inalsa/pasta.jpg" alt="INALSA Barquisimeto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════ NEWS PAGES ════════════════════════════════ -->
+
+<!-- NEWS: ISO -->
+<div id="page-news-iso" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--red);padding:52px 0 44px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('novedades'),200)">Novedades</div>
+        <div class="news-meta">
+          <span class="news-tag">Calidad</span>
+          <span class="news-date">Barquisimeto, Edo. Lara — Abril 2026</span>
+        </div>
+        <div class="inner-page-title">Elevamos nuestro estándar con la Certificación ISO 9001:2015</div>
+        <div class="inner-page-sub">Para alimentar con excelencia a Venezuela</div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="news-content">
+          <img class="news-img-hero" src="img/novedades/iso.jpg" alt="Certificación ISO 9001 INALSA" loading="lazy">
+          <div class="news-body">
+            <p>En un paso decisivo para consolidar nuestro liderazgo en la industria de alimentos, en <strong>INALSA</strong> anunciamos con orgullo la obtención de la <strong>certificación internacional ISO 9001:2015</strong>, otorgada por <strong>FONDONORMA e IQNET</strong>. Este hito es mucho más que un reconocimiento técnico; es la validación oficial del estándar de calidad que nos caracteriza.</p>
+
+            <h2>¿Qué logramos y quiénes somos?</h2>
+            <p>Esta certificación avala que cada etapa de nuestra operación, desde la recepción de la materia prima hasta el despacho final, cumple con los protocolos internacionales de Gestión de la Calidad. En INALSA, como empresa fundamental de nuestro <strong>Grupo Corporativo Alimentos Mary</strong>, hemos certificado los procesos de fabricación de nuestras harinas, sémolas, pastas y las galletas María que llegan a miles de hogares venezolanos.</p>
+            <p>Este hito es el resultado directo de meses de trabajo incansable, auditorías internas y un compromiso inquebrantable por parte de la Gerencia General y de nuestros equipos de Gestión de la Calidad, Producción, Mantenimiento, Recursos Humanos, Compras, Almacenes, Logística, Tecnología de la Información, Contabilidad y Finanzas.</p>
+
+            <h2>¿Cuándo y dónde ocurrió?</h2>
+            <p>Tras un riguroso proceso de auditoría culminado en noviembre de 2025 en nuestras instalaciones de Barquisimeto, hemos recibido el aval que nos posiciona junto a nuestra planta hermana <strong>Amapola</strong>, como un bloque productivo blindado y confiable.</p>
+
+            <h2>¿Por qué lo hacemos?</h2>
+            <p>Nuestro objetivo es claro: <strong>garantizar el alimento del presente y futuro de Venezuela</strong>. Entendemos que la confianza de nuestros consumidores se gana con hechos. Al sumar este logro corporativo, reafirmamos que el compromiso con la seguridad alimentaria y la eficiencia operativa es una realidad tangible en cada uno de nuestros productos.</p>
+
+            <h2>Un mensaje para ti, nuestro colaborador</h2>
+            <blockquote>Este sello también lleva tu nombre. Aunque hoy celebramos a INALSA, este logro es el reflejo de una cultura que compartimos como grupo: la de cuidar cada detalle, seguir cada protocolo y trabajar con excelencia en cada línea de producción y almacén. Nosotros no solo producimos alimentos; fabricamos confianza, y hoy el mundo lo reconoce formalmente una vez más.</blockquote>
+            <p>Obtener la certificación ISO 9001:2015 es un triunfo compartido que proyecta el rigor diario de nuestra gente. Este hito es el resultado del compromiso y la voluntad de superación que cada colaborador aporta desde su rol, sin importar en qué empresa del grupo se encuentre.</p>
+            <p>En <strong>Alimentos Mary</strong>, seguimos adelante, con la mirada puesta en la excelencia y el corazón en la mesa de cada familia venezolana.</p>
+            <p><strong>Juntos Alimentamos a un País.</strong></p>
+          </div>
+        </div>
+
+        <div class="news-related">
+          <h3>Otras Novedades</h3>
+          <div class="related-grid">
+            <div class="novedad-card" onclick="showPage('news-pastora')" style="cursor:pointer">
+              <div class="novedad-img-wrap"><img class="novedad-img" src="img/novedades/cale.jpg" alt="Divina Pastora"></div>
+              <div class="novedad-body">
+                <span class="novedad-tag">Comunidad</span>
+                <div class="novedad-title">Día de la Divina Pastora</div>
+                <span class="novedad-link">Leer noticia</span>
+              </div>
+            </div>
+            <div class="novedad-card" onclick="showPage('news-momentos')" style="cursor:pointer">
+              <div class="novedad-img-wrap"><img class="novedad-img" src="img/novedades/momen.jpg" alt="María Momentos" style="object-fit:contain;background:#f8f5f0;padding:20px;"></div>
+              <div class="novedad-body">
+                <span class="novedad-tag">Lanzamiento</span>
+                <div class="novedad-title">Línea María Momentos</div>
+                <span class="novedad-link">Leer noticia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- NEWS: DIVINA PASTORA -->
+<div id="page-news-pastora" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--red-dark);padding:52px 0 44px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('novedades'),200)">Novedades</div>
+        <div class="news-meta">
+          <span class="news-tag">Comunidad</span>
+          <span class="news-date">Barquisimeto — Enero 2025</span>
+        </div>
+        <div class="inner-page-title">Día de la Divina Pastora: ¡Juntos caminamos con fe y esperanza!</div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="news-content">
+          <img class="news-img-hero" src="img/novedades/cale.jpg" alt="Divina Pastora">
+          <div class="news-body">
+            <p>El pasado <strong>martes 13 y el miércoles 14 de enero</strong>, nos reunimos en la sala de recreación de Administración, y en puntos clave de la ciudad para vivir una jornada dedicada a honrar y acompañar nuestra fe, en el marco de la <strong>Procesión por la Divina Pastora</strong>.</p>
+
+            <h2>Un encuentro de fe y comunidad</h2>
+            <p>Para nosotros, el <strong>bienestar de nuestra gente y de la familia venezolana</strong> es la prioridad que guía cada paso que damos. Por eso, quisimos acompañarlos de cerca:</p>
+            <ul>
+              <li>El martes compartimos en planta la entrega de <strong>kits de atención</strong> —con abanicos, stickers, sombreros y nuestras galletas María— para que estuvieran preparados para el gran día.</li>
+              <li>El miércoles, llevamos ese mismo orgullo a la calle en nuestro <strong>stand Mary</strong> de la Carrera 19 con Av. Morán, donde juntos demostramos la fuerza y la alegría que nos define como equipo.</li>
+            </ul>
+
+            <h2>Gratitud y orgullo</h2>
+            <blockquote>¡Gracias por su entusiasmo y participación! Al trabajar con pasión por los demás, fortalecemos los valores fundamentales que nos unen y nos impulsan a ser mejores cada día.</blockquote>
+            <p>Esta experiencia nos recuerda que, cuando trabajamos con <strong>pasión y profesionalismo</strong>, logramos superar cualquier expectativa. Ustedes son el corazón de <strong>Inalsa</strong> y quienes hacen posible que nuestra promesa de bienestar llegue a cada hogar venezolano.</p>
+            <p>Gracias por caminar con nosotros y por demostrar que, en esta familia, <strong>nuestra fe y nuestro compromiso no tienen fronteras</strong>.</p>
+            <p>¡Sigamos alimentando el orgullo de ser <strong>Alimentos Mary</strong>!</p>
+          </div>
+        </div>
+
+        <div class="news-related">
+          <h3>Otras Novedades</h3>
+          <div class="related-grid">
+            <div class="novedad-card" onclick="showPage('news-iso')" style="cursor:pointer">
+              <div class="novedad-img-wrap"><img class="novedad-img" src="img/novedades/iso.jpg" alt="ISO"></div>
+              <div class="novedad-body">
+                <span class="novedad-tag">Calidad</span>
+                <div class="novedad-title">Certificación ISO 9001:2015</div>
+                <span class="novedad-link">Leer noticia</span>
+              </div>
+            </div>
+            <div class="novedad-card" onclick="showPage('news-momentos')" style="cursor:pointer">
+              <div class="novedad-img-wrap"><img class="novedad-img" src="img/novedades/momen.jpg" alt="Momentos" style="object-fit:contain;background:#f8f5f0;padding:20px;"></div>
+              <div class="novedad-body">
+                <span class="novedad-tag">Lanzamiento</span>
+                <div class="novedad-title">Línea María Momentos</div>
+                <span class="novedad-link">Leer noticia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- NEWS: MARÍA MOMENTOS -->
+<div id="page-news-momentos" class="page">
+  <div style="padding-top:var(--nav-h)">
+    <div style="background:var(--red);padding:52px 0 44px">
+      <div class="container">
+        <div class="back-btn" onclick="showPage('home'); setTimeout(()=>scrollToSection('novedades'),200)">Novedades</div>
+        <div class="news-meta">
+          <span class="news-tag">Lanzamiento</span>
+          <span class="news-date">Marzo 2025</span>
+        </div>
+        <div class="inner-page-title">Galletas Caledonia reinventa lo clásico con su nueva Línea María Momentos</div>
+        <div class="inner-page-sub">Una apuesta disruptiva y sensorial</div>
+      </div>
+    </div>
+    <div class="inner-content">
+      <div class="container">
+        <div class="news-content">
+          <img class="news-img-hero" src="img/novedades/momen.jpg" alt="María Momentos" style="object-fit:contain;background:#f8f5f0;padding:32px;border-radius:4px;">
+          <div class="news-body">
+            <p><strong>Galletas Caledonia</strong> anuncia el lanzamiento oficial de su <strong>Línea María Momentos</strong>, una propuesta innovadora que nace para transformar el estándar de la galletería tradicional hacia una experiencia sensorial superior, conformada por una explosión de sabores.</p>
+            <p>Con esta nueva línea, la marca invita a los consumidores a redescubrir su pausa diaria, convirtiendo un producto icónico como la Galleta María en el protagonista de nuevos y variados rituales de consumo.</p>
+
+            <h2>Una explosión de sabores</h2>
+            <p>La Línea María Momentos incluye, adicional a la clásica Galleta María tradicional, tres saborizaciones:</p>
+            <ul>
+              <li><strong>María con Canela</strong> — Las cálidas notas que abrazan cada mordisco</li>
+              <li><strong>María con Cacao</strong> — Intensidad y profundidad de sabor</li>
+              <li><strong>María con Limón</strong> — El nuevo sabor estrella, cítrico y refrescante</li>
+            </ul>
+            <p>La gran estrella de este lanzamiento es el nuevo sabor a <strong>Limón</strong>. Este "twist" cítrico y refrescante es la propuesta más audaz de Caledonia, diseñada para quienes buscan romper la rutina con una sensación ligera y vibrante que despierta los sentidos en cada bocado.</p>
+
+            <h2>Un empaque para cada estado de ánimo</h2>
+            <p>La Línea María Momentos se distingue en el anaquel por una estética moderna y colorida:</p>
+            <ul>
+              <li><strong style="color:#4CAF50">Verde vibrante</strong> — Para la nueva y refrescante María con Limón</li>
+              <li><strong style="color:#7B1FA2">Morado intenso</strong> — Para María con Cacao</li>
+              <li><strong style="color:#F57C00">Anaranjado cálido</strong> — Para María con Canela</li>
+              <li><strong style="color:#1565C0">Azul clásico</strong> — Para María Tradicional</li>
+            </ul>
+
+            <h2>La voz detrás del lanzamiento</h2>
+            <blockquote>"En Galletas Caledonia entendemos que la Galleta María es un producto arraigado en el consumo de los venezolanos, pero sentíamos que era hora de darle un toque más osado. Con la Línea María Momentos, no solo estamos lanzando nuevos sabores como el refrescante Limón, sino que estamos ofreciendo una nueva forma de disfrutar lo tradicional."
+            <br><br>— <strong>Galletas Caledonia</strong></blockquote>
+
+            <h2>Marzo: Un homenaje con historia femenina</h2>
+            <p>El lanzamiento cobra un matiz especial en marzo, mes de la mujer. Galletas Caledonia rinde tributo a la figura femenina rescatando la historia de la Galleta María, creada originalmente en <strong>Londres, en 1874</strong>, para honrar a la Gran Duquesa María Alexandrovna de Rusia y conmemorar su matrimonio con el Duque de Edimburgo.</p>
+            <p>Al igual que aquella dedicatoria real, Caledonia celebra a la mujer actual, ofreciéndole un producto que es sinónimo de distinción y disfrute personal.</p>
+
+            <h2>Disponibilidad</h2>
+            <p>La Línea María Momentos ya se encuentra disponible en los principales puntos de venta del país, respaldada por una robusta campaña comunicacional con presencia en televisión, cine, radio y plataformas digitales.</p>
+            <p>Galletas Caledonia pertenece al grupo <strong>Alimentos Mary</strong>. Para más información: @galletascaledonia en Instagram.</p>
+          </div>
+        </div>
+
+        <div class="news-related">
+          <h3>Otras Novedades</h3>
+          <div class="related-grid">
+            <div class="novedad-card" onclick="showPage('news-iso')" style="cursor:pointer">
+              <div class="novedad-img-wrap"><img class="novedad-img" src="img/novedades/iso.jpg" alt="ISO"></div>
+              <div class="novedad-body">
+                <span class="novedad-tag">Calidad</span>
+                <div class="novedad-title">Certificación ISO 9001:2015</div>
+                <span class="novedad-link">Leer noticia</span>
+              </div>
+            </div>
+            <div class="novedad-card" onclick="showPage('news-pastora')" style="cursor:pointer">
+              <div class="novedad-img-wrap"><img class="novedad-img" src="img/novedades/cale.jpg" alt="Pastora"></div>
+              <div class="novedad-body">
+                <span class="novedad-tag">Comunidad</span>
+                <div class="novedad-title">Día de la Divina Pastora</div>
+                <span class="novedad-link">Leer noticia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="padding-top:0;border-top:none">
+          <p>© 2026 Alimentos Mary.</p>
+          <span style="color:rgba(255, 255, 255, 0.808);cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase" onclick="showPage('home')">← Volver al inicio</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
