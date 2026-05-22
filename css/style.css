@@ -194,6 +194,8 @@ a { text-decoration: none; color: inherit; }
 .about-badge .lbl { font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .about-text p { font-size: 1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 18px; }
 .mvv-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 36px; }
+.mvv-cards.two-col { grid-template-columns: 1fr 1fr; margin-bottom: 20px; }
+.mvv-cards.three-col { grid-template-columns: repeat(3,1fr); }
 .mvv-card {
   background: var(--gray-light); border-top: 3px solid var(--red);
   border-radius: 3px; padding: 22px 16px;
@@ -434,7 +436,7 @@ footer { background: #111; padding: 64px 0 28px; }
   .novedades-grid .novedad-card:nth-child(1) { grid-column: span 1; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .about-images { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; }
-  .mvv-cards { grid-template-columns: 1fr; }
+  .mvv-cards, .mvv-cards.two-col, .mvv-cards.three-col { grid-template-columns: 1fr; }
   .c-row { grid-template-columns: 1fr; }
   .container { padding: 0 18px; }
   .planta-facts { grid-template-columns: 1fr; }
