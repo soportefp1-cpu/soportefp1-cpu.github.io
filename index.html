@@ -56,7 +56,8 @@
       <img src="img/logan.png" alt="Juntos Alimentamos a un País" class="hero-eslogan">
       <p class="hero-tagline">Más de 60 años produciendo alimentos de calidad para la mesa venezolana. Tradición, innovación y compromiso en cada producto.</p>
       <div class="hero-cta-row">
-        <span class="btn-red" onclick="scrollToSection('about')">Nuestra Historia</span>
+        <span class="btn-red" onclick="scrollToSection('productos-link')">Ver Productos</span>
+        <span class="btn-outline-white" onclick="scrollToSection('about')">Nuestra Historia</span>
       </div>
     </div>
     <div class="hero-scroll">
@@ -231,11 +232,11 @@
         <p class="section-sub" style="margin:0 auto">Haz clic en cada marca para conocer más sobre su portafolio de productos.</p>
       </div>
       <div class="marcas-grid">
-        <a class="marca-card reveal" target="_blank" title="Mary — En construcción">
+        <a class="marca-card reveal" href="" target="_blank" title="Mary — En construcción">
           <img src="img/marcas/MARY.png" alt="Mary" loading="lazy">
           <span class="marca-card-label">Visitar sitio web</span>
         </a>
-        <a class="marca-card reveal" style="transition-delay:.15s" target="_blank" title="Caledonia — En construcción">
+        <a class="marca-card reveal" style="transition-delay:.15s" href="" target="_blank" title="Caledonia — En construcción">
           <img src="img/marcas/CALEDONIA.png" alt="Caledonia" loading="lazy">
           <span class="marca-card-label">Visitar sitio web</span>
         </a>
@@ -900,6 +901,34 @@
         </div>
       </div>
     </footer>
+  </div>
+</div>
+
+<!-- ══════════ CHAT MARY ══════════ -->
+<div id="chat-mary-widget">
+  <button id="chat-mary-btn" onclick="maryToggle()" aria-label="Abrir Chat Mary">
+    <i class="fas fa-robot" id="mbt-open"></i>
+    <span id="mbt-label">Chat Mary</span>
+    <i class="fas fa-times" id="mbt-close"></i>
+    <span class="mary-pulse-dot" id="mary-dot"></span>
+  </button>
+  <div id="chat-mary-win" role="dialog" aria-label="Chat Mary">
+    <div class="cw-header">
+      <div class="cw-header-info">
+        <div class="cw-avatar"><i class="fas fa-robot"></i></div>
+        <div>
+          <div class="cw-name">Chat Mary</div>
+          <div class="cw-sub"><span class="cw-online-dot"></span>Asistente Virtual</div>
+        </div>
+      </div>
+      <button class="cw-close-btn" onclick="maryToggle()" aria-label="Cerrar chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cw-msgs"></div>
+    <div id="cw-chips"></div>
+    <div class="cw-input-row">
+      <input id="cw-input" type="text" placeholder="Escribe tu consulta…" autocomplete="off" onkeydown="if(event.key==='Enter')marySend()">
+      <button class="cw-send-btn" onclick="marySend()" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button>
+    </div>
   </div>
 </div>
 
