@@ -271,3 +271,156 @@ function submitContactForm() {
     console.error('Contact form error:', err);
   });
 }
+
+(function () {
+  var MARY_DATA = {
+    welcome: {
+      msg: '¡Hola! Soy <strong>Mary</strong>, tu asistente virtual de <strong>Alimentos Mary</strong>.<br>¿En qué puedo ayudarte hoy?',
+      chips: [
+        { label: '💼 Empleos y Vacantes', action: 'empleos' },
+        { label: '📋 Propuesta Comercial', action: 'comercial' },
+        { label: '💻 Área de TI', action: 'tecnologia' }
+      ]
+    },
+    empleos: {
+      msg: 'Para consultas sobre <strong>empleos y vacantes</strong> en el Grupo Alimentos Mary, comunícate con nuestro departamento de <strong>Recursos Humanos</strong>:<br><br>📧 <a href="mailto:captacion@alimentosmary.com">captacion@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM<br><br>Por favor indica el cargo de interés y adjunta tu CV actualizado.',
+      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
+    },
+    comercial: {
+      msg: 'Para enviar <strong>propuestas comerciales</strong>, alianzas o nuevos negocios, contacta a nuestro equipo de <strong>Mercadeo</strong>:<br><br>📧 <a href="mailto:lsequera@alimentosmary.com">lsequera@alimentosmary.com</a><br><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
+      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
+    },
+    tecnologia: {
+      msg: '💻 <strong>Área de TI</strong><br><br>📧 <a href="mailto:jrangel@alimentosmary.com">jrangel@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM<br><br>Para: soporte técnico, sistemas de información y requerimientos tecnológicos.',
+      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
+    }
+  };
+
+  var KEYWORDS = {
+    empleos:   ['empleo','trabajo','vacante','postular','cv','curriculum','contratar','plaza','puesto','aplicar','rrhh','recursos humanos'],
+    comercial: ['propuesta','comercial','negocio','alianza','distribuidor','proveedor','cliente','convenio','mercadeo','marketing'],
+    tecnologia:['tecnologia','tecnología','soporte','sistemas','informatica','informática',' ti ','area ti','área ti','tech','it']
+  };
+
+  var maryIsOpen = false;
+  var maryFirstOpen = true;
+
+  window.maryToggle = function () {
+    maryIsOpen = !maryIsOpen;
+    var win   = document.getElementById('chat-mary-win');
+    var dot   = document.getElementById('mary-dot');
+    var iOpen = document.getElementById('mbt-open');
+    var lbl   = document.getElementById('mbt-label');
+    var iClose= document.getElementById('mbt-close');
+    var btn   = document.getElementById('chat-mary-btn');
+
+    if (maryIsOpen) {
+      win.classList.add('mary-open');
+      iOpen.style.display  = 'none';
+      lbl.style.display    = 'none';
+      iClose.style.display = 'inline';
+      dot.style.display    = 'none';
+      btn.classList.add('mary-btn-compact');
+      if (maryFirstOpen) {
+        maryFirstOpen = false;
+        setTimeout(function(){ maryRespond('welcome'); }, 320);
+      }
+      setTimeout(function(){ var i=document.getElementById('cw-input'); if(i) i.focus(); }, 360);
+    } else {
+      win.classList.remove('mary-open');
+      iOpen.style.display  = '';
+      lbl.style.display    = '';
+      iClose.style.display = 'none';
+      btn.classList.remove('mary-btn-compact');
+    }
+  };
+
+  function maryRespond(action) {
+    var data = MARY_DATA[action];
+    if (!data) return;
+    showTyping();
+    setTimeout(function () {
+      removeTyping();
+      addBotMsg(data.msg);
+      setChips(data.chips);
+    }, 680);
+  }
+
+  function showTyping() {
+    var msgs = document.getElementById('cw-msgs');
+    var d = document.createElement('div');
+    d.className = 'cw-msg bot cw-typing'; d.id = 'cw-typing-ind';
+    d.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    var t = document.getElementById('cw-typing-ind');
+    if (t) t.remove();
+  }
+
+  function addBotMsg(html) {
+    var msgs = document.getElementById('cw-msgs');
+    var d = document.createElement('div');
+    d.className = 'cw-msg bot'; d.innerHTML = html;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function addUsrMsg(text) {
+    var msgs = document.getElementById('cw-msgs');
+    var d = document.createElement('div');
+    d.className = 'cw-msg usr'; d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function setChips(chips) {
+    var c = document.getElementById('cw-chips');
+    c.innerHTML = '';
+    chips.forEach(function (ch) {
+      var btn = document.createElement('button');
+      btn.className = 'cw-chip';
+      btn.textContent = ch.label;
+      btn.onclick = function () {
+        addUsrMsg(ch.label);
+        setChips([]);
+        maryRespond(ch.action);
+      };
+      c.appendChild(btn);
+    });
+  }
+
+  window.marySend = function () {
+    var input = document.getElementById('cw-input');
+    var text  = (input.value || '').trim();
+    if (!text) return;
+    input.value = '';
+    addUsrMsg(text);
+    setChips([]);
+
+    var lower  = text.toLowerCase();
+    var action = null;
+    var keys   = Object.keys(KEYWORDS);
+    for (var i = 0; i < keys.length; i++) {
+      var key   = keys[i];
+      var words = KEYWORDS[key];
+      for (var j = 0; j < words.length; j++) {
+        if (lower.indexOf(words[j]) !== -1) { action = key; break; }
+      }
+      if (action) break;
+    }
+
+    if (action) {
+      maryRespond(action);
+    } else {
+      showTyping();
+      setTimeout(function () {
+        removeTyping();
+        addBotMsg('Lo siento, solo puedo ayudarte con información sobre <strong>empleos</strong>, <strong>propuestas comerciales</strong>, <strong>horarios</strong> y <strong>contacto de departamentos</strong>. ¿En qué área puedo ayudarte?');
+        setChips(MARY_DATA.welcome.chips);
+      }, 680);
+    }
+  };
+})();
