@@ -283,15 +283,15 @@ function submitContactForm() {
       ]
     },
     empleos: {
-      msg: 'Para consultas sobre <strong>empleos y vacantes</strong> en el Grupo Alimentos Mary, comunícate con nuestro departamento de <strong>Recursos Humanos</strong>:<br><br>📧 <a href="mailto:captacion@alimentosmary.com">captacion@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM<br><br>Por favor indica el cargo de interés y adjunta tu CV actualizado.',
+      msg: 'Si deseas formar parte de <strong>Alimentos Mary</strong>, puedes enviarnos tu información al correo de <strong>Recursos Humanos</strong>. Nuestro equipo revisará tu perfil y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:captacion@alimentosmary.com">captacion@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
       chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
     },
     comercial: {
-      msg: 'Para enviar <strong>propuestas comerciales</strong>, alianzas o nuevos negocios, contacta a nuestro equipo de <strong>Mercadeo</strong>:<br><br>📧 <a href="mailto:lsequera@alimentosmary.com">lsequera@alimentosmary.com</a><br><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
+      msg: 'Si tienes una <strong>propuesta comercial</strong> o deseas establecer una alianza con <strong>Alimentos Mary</strong>, puedes enviarnos tu información al correo de <strong>Mercadeo</strong>. Nuestro equipo la revisará y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:lsequera@alimentosmary.com">lsequera@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
       chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
     },
     tecnologia: {
-      msg: '💻 <strong>Área de TI</strong><br><br>📧 <a href="mailto:jrangel@alimentosmary.com">jrangel@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM<br><br>Para: soporte técnico, sistemas de información y requerimientos tecnológicos.',
+      msg: 'Si representas una empresa y deseas enviarnos información o propuestas dirigidas al <strong>Área de TI</strong> de <strong>Alimentos Mary</strong>, puedes hacerlo a través del siguiente correo. Nuestro equipo la revisará y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:jrangel@alimentosmary.com">jrangel@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
       chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
     }
   };
