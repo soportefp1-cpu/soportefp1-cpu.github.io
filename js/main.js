@@ -94,34 +94,17 @@ function sendForm(btn) {
     welcome: {
       msg: '¡Hola! Soy <strong>Mary</strong>, tu asistente virtual de <strong>Alimentos Mary</strong>.<br>¿En qué puedo ayudarte hoy?',
       chips: [
-        { label: '💼 Empleos y Vacantes', action: 'empleos' },
-        { label: '📋 Propuesta Comercial', action: 'comercial' },
-        { label: '💻 Área de TI', action: 'tecnologia' },
-        { label: '📩 Otra Consulta', action: 'general' }
+        { label: '💼 Empleos y Vacantes', action: 'empleos' }
       ]
     },
     empleos: {
-      msg: 'Si deseas formar parte de <strong>Alimentos Mary</strong>, puedes enviarnos tu información al correo de <strong>Recursos Humanos</strong>. Nuestro equipo revisará tu perfil y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:captacion@alimentosmary.com">captacion@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
-      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
-    },
-    comercial: {
-      msg: 'Si tienes una <strong>propuesta comercial</strong> o deseas establecer una alianza con <strong>Alimentos Mary</strong>, puedes enviarnos tu información al correo de <strong>Mercadeo</strong>. Nuestro equipo la revisará y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:lsequera@alimentosmary.com">lsequera@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
-      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
-    },
-    tecnologia: {
-      msg: 'Si representas una empresa y deseas enviarnos información o propuestas dirigidas al <strong>Área de TI</strong> de <strong>Alimentos Mary</strong>, puedes hacerlo a través del siguiente correo. Nuestro equipo la revisará y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:jrangel@alimentosmary.com">jrangel@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
-      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
-    },
-    general: {
-      msg: 'Para cualquier otra consulta o información general sobre <strong>Alimentos Mary</strong>, puedes escribirnos a:<br><br>📧 <a href="mailto:info@alimentosmary.com">info@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
+      msg: '¡Nos alegra tu interés en formar parte de <strong>Alimentos Mary</strong>! Consulta nuestras <strong>vacantes activas</strong> directamente en LinkedIn y postúlate desde allí.<br><br><a href="https://www.linkedin.com/company/alimentos-mary/jobs/" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;padding:8px 14px;background:#0a66c2;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;">🔗 Ver vacantes en LinkedIn</a>',
       chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
     }
   };
 
   var KEYWORDS = {
-    empleos:   ['empleo','trabajo','vacante','postular','cv','curriculum','contratar','plaza','puesto','aplicar','rrhh','recursos humanos'],
-    comercial: ['propuesta','comercial','negocio','alianza','distribuidor','proveedor','cliente','convenio','mercadeo','marketing'],
-    tecnologia:['tecnologia','tecnología','soporte','sistemas','informatica','informática',' ti ','area ti','área ti','tech','it']
+    empleos: ['empleo','trabajo','vacante','postular','cv','curriculum','contratar','plaza','puesto','aplicar','rrhh','recursos humanos','linkedin']
   };
 
   var maryIsOpen = false;
@@ -240,7 +223,7 @@ function sendForm(btn) {
       showTyping();
       setTimeout(function () {
         removeTyping();
-        addBotMsg('Lo siento, no entendí tu consulta. Puedo ayudarte con <strong>empleos</strong>, <strong>propuestas comerciales</strong>, <strong>Área de TI</strong> u <strong>otras consultas</strong>. ¿En qué puedo ayudarte?');
+        addBotMsg('Lo siento, no entendí tu consulta. Por el momento puedo ayudarte con información sobre <strong>empleos y vacantes</strong>. ¿En qué puedo ayudarte?');
         setChips(MARY_DATA.welcome.chips);
       }, 680);
     }
