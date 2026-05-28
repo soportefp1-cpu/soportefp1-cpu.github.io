@@ -89,189 +89,6 @@ function sendForm(btn) {
   setTimeout(() => { btn.textContent = txt; btn.style.background = ''; btn.disabled = false; }, 4500);
 }
 
-/* ════════ FORMULARIO DE CONTACTO — VALIDACIÓN Y ENVÍO ════════════════════════════════ */
-
-// ── Contadores de caracteres en tiempo real ──
-(function() {
-  const pairs = [
-    { inputId: 'cf-asunto',  countId: 'char-asunto',  max: 100  },
-    { inputId: 'cf-mensaje', countId: 'char-mensaje', max: 1200 }
-  ];
-  document.addEventListener('DOMContentLoaded', () => {
-    pairs.forEach(({ inputId, countId, max }) => {
-      const el = document.getElementById(inputId);
-      const counter = document.getElementById(countId);
-      if (!el || !counter) return;
-      el.addEventListener('input', () => {
-        const len = el.value.length;
-        counter.textContent = `${len} / ${max}`;
-        counter.style.color = len > max * 0.9
-          ? (len >= max ? '#ff6b6b' : '#ffb74d')
-          : 'rgba(255,255,255,.3)';
-      });
-    });
-  });
-})();
-
-// ── Validaciones individuales ──
-function validarNombre(val) {
-  const limpio = val.trim();
-  if (!limpio) return 'El nombre es obligatorio.';
-  if (!/^[a-zA-ZáéíóúÁÉÍÓÚàèìòùÀÈÌÒÙäëïöüÄËÏÖÜñÑ\s'\-]+$/.test(limpio))
-    return 'Solo se permiten letras y espacios.';
-  if (limpio.length < 2) return 'El nombre debe tener al menos 2 caracteres.';
-  return '';
-}
-
-function validarEmail(val) {
-  const limpio = val.trim();
-  if (!limpio) return 'El correo es obligatorio.';
-  // RFC 5322 básico
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  if (!re.test(limpio)) return 'Ingresa un correo electrónico válido.';
-  return '';
-}
-
-function validarAsunto(val) {
-  const limpio = val.trim();
-  if (!limpio) return 'El asunto es obligatorio.';
-  if (limpio.length < 4) return 'El asunto es demasiado corto.';
-  if (limpio.length > 100) return 'El asunto no puede superar los 100 caracteres.';
-  return '';
-}
-
-function validarMensaje(val) {
-  const limpio = val.trim();
-  if (!limpio) return 'El mensaje es obligatorio.';
-  if (limpio.length < 10) return 'El mensaje debe tener al menos 10 caracteres.';
-  if (limpio.length > 1200) return 'El mensaje no puede superar los 1.200 caracteres.';
-  return '';
-}
-
-// ── Mostrar/limpiar error en campo ──
-function setFieldState(inputEl, errorEl, msg) {
-  if (msg) {
-    inputEl.classList.add('invalid');
-    inputEl.classList.remove('valid');
-    errorEl.textContent = msg;
-  } else {
-    inputEl.classList.remove('invalid');
-    inputEl.classList.add('valid');
-    errorEl.textContent = '';
-  }
-  return !msg;
-}
-
-// ── Validación en tiempo real al salir del campo ──
-document.addEventListener('DOMContentLoaded', () => {
-  const fields = [
-    { id: 'cf-nombre',  errId: 'err-nombre',  fn: validarNombre  },
-    { id: 'cf-email',   errId: 'err-email',   fn: validarEmail   },
-    { id: 'cf-asunto',  errId: 'err-asunto',  fn: validarAsunto  },
-    { id: 'cf-mensaje', errId: 'err-mensaje', fn: validarMensaje }
-  ];
-  fields.forEach(({ id, errId, fn }) => {
-    const el  = document.getElementById(id);
-    const err = document.getElementById(errId);
-    if (!el || !err) return;
-
-    // Bloquear números en campo nombre
-    if (id === 'cf-nombre') {
-      el.addEventListener('keypress', e => {
-        const char = String.fromCharCode(e.which);
-        if (/[0-9]/.test(char)) e.preventDefault();
-      });
-      el.addEventListener('input', () => {
-        // Eliminar números si se pegan con paste
-        el.value = el.value.replace(/[0-9]/g, '');
-      });
-    }
-
-    el.addEventListener('blur', () => {
-      setFieldState(el, err, fn(el.value));
-    });
-    el.addEventListener('input', () => {
-      if (el.classList.contains('invalid')) {
-        setFieldState(el, err, fn(el.value));
-      }
-    });
-  });
-});
-
-// ── Envío del formulario ──
-function submitContactForm() {
-  const nombre  = document.getElementById('cf-nombre');
-  const email   = document.getElementById('cf-email');
-  const asunto  = document.getElementById('cf-asunto');
-  const mensaje = document.getElementById('cf-mensaje');
-  const btn     = document.getElementById('cf-btn');
-  const status  = document.getElementById('form-status');
-
-  const errNombre  = document.getElementById('err-nombre');
-  const errEmail   = document.getElementById('err-email');
-  const errAsunto  = document.getElementById('err-asunto');
-  const errMensaje = document.getElementById('err-mensaje');
-
-  // Validar todos los campos
-  const v1 = setFieldState(nombre,  errNombre,  validarNombre(nombre.value));
-  const v2 = setFieldState(email,   errEmail,   validarEmail(email.value));
-  const v3 = setFieldState(asunto,  errAsunto,  validarAsunto(asunto.value));
-  const v4 = setFieldState(mensaje, errMensaje, validarMensaje(mensaje.value));
-
-  if (!v1 || !v2 || !v3 || !v4) {
-    // Hacer scroll al primer error
-    const firstInvalid = document.querySelector('#contactForm .invalid');
-    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-
-  // Deshabilitar botón mientras envía
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
-  status.className = 'sending';
-  status.textContent = '⏳ Enviando tu mensaje, por favor espera...';
-  status.style.display = 'block';
-
-  // Construir FormData
-  const formData = new FormData();
-  formData.append('nombre',  nombre.value.trim());
-  formData.append('email',   email.value.trim());
-  formData.append('asunto',  asunto.value.trim());
-  formData.append('mensaje', mensaje.value.trim());
-
-  // Enviar al script PHP
-  fetch('send_mail.php', {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.ok) {
-      status.className = 'success';
-      status.innerHTML = '✅ ¡Mensaje enviado! Nos pondremos en contacto contigo a la brevedad.';
-      // Limpiar form
-      ['cf-nombre','cf-email','cf-asunto','cf-mensaje'].forEach(id => {
-        const el = document.getElementById(id);
-        el.value = '';
-        el.classList.remove('valid','invalid');
-      });
-      document.getElementById('char-asunto').textContent  = '0 / 100';
-      document.getElementById('char-mensaje').textContent = '0 / 1200';
-      btn.textContent = 'Enviar Mensaje →';
-      btn.disabled = false;
-    } else {
-      throw new Error(data.msg || 'Error desconocido');
-    }
-  })
-  .catch(err => {
-    status.className = 'error';
-    status.innerHTML = '❌ Hubo un problema al enviar. Por favor intenta de nuevo o escríbenos directamente a <a href="mailto:info@alimentosmary.com" style="color:#ff6b6b">info@alimentosmary.com</a>';
-    btn.textContent = 'Enviar Mensaje →';
-    btn.disabled = false;
-    console.error('Contact form error:', err);
-  });
-}
-
 (function () {
   var MARY_DATA = {
     welcome: {
@@ -279,7 +96,8 @@ function submitContactForm() {
       chips: [
         { label: '💼 Empleos y Vacantes', action: 'empleos' },
         { label: '📋 Propuesta Comercial', action: 'comercial' },
-        { label: '💻 Área de TI', action: 'tecnologia' }
+        { label: '💻 Área de TI', action: 'tecnologia' },
+        { label: '📩 Otra Consulta', action: 'general' }
       ]
     },
     empleos: {
@@ -292,6 +110,10 @@ function submitContactForm() {
     },
     tecnologia: {
       msg: 'Si representas una empresa y deseas enviarnos información o propuestas dirigidas al <strong>Área de TI</strong> de <strong>Alimentos Mary</strong>, puedes hacerlo a través del siguiente correo. Nuestro equipo la revisará y se pondrá en contacto contigo.<br><br>📧 <a href="mailto:jrangel@alimentosmary.com">jrangel@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
+      chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
+    },
+    general: {
+      msg: 'Para cualquier otra consulta o información general sobre <strong>Alimentos Mary</strong>, puedes escribirnos a:<br><br>📧 <a href="mailto:info@alimentosmary.com">info@alimentosmary.com</a><br>🕐 Lunes a Viernes: 8:00 AM – 5:00 PM',
       chips: [{ label: '⬅ Volver al inicio', action: 'welcome' }]
     }
   };
@@ -418,7 +240,7 @@ function submitContactForm() {
       showTyping();
       setTimeout(function () {
         removeTyping();
-        addBotMsg('Lo siento, solo puedo ayudarte con información sobre <strong>empleos</strong>, <strong>propuestas comerciales</strong>, <strong>horarios</strong> y <strong>contacto de departamentos</strong>. ¿En qué área puedo ayudarte?');
+        addBotMsg('Lo siento, no entendí tu consulta. Puedo ayudarte con <strong>empleos</strong>, <strong>propuestas comerciales</strong>, <strong>Área de TI</strong> u <strong>otras consultas</strong>. ¿En qué puedo ayudarte?');
         setChips(MARY_DATA.welcome.chips);
       }, 680);
     }
