@@ -27,7 +27,6 @@
       <li><a onclick="showPage('home'); scrollToSection('trayectoria')">Trayectoria</a></li>
       <li><a onclick="showPage('home'); scrollToSection('plantas')">Nuestras Plantas</a></li>
       <li><a onclick="showPage('home'); scrollToSection('novedades')">Novedades</a></li>
-      <li><a onclick="showPage('home'); scrollToSection('contact')">Contacto</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobile()">
       <span></span><span></span><span></span>
@@ -39,7 +38,6 @@
   <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('trayectoria'),300)">Trayectoria</a>
   <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('plantas'),300)">Nuestras Plantas</a>
   <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('novedades'),300)">Novedades</a>
-  <a onclick="showPage('home'); toggleMobile(); setTimeout(()=>scrollToSection('contact'),300)">Contacto</a>
 </div>
 
 <!-- ════════════════════════════════ HOME PAGE ════════════════════════════════ -->
@@ -291,65 +289,6 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="reveal">
-          <span class="section-label">Contacto</span>
-          <h2 class="section-title" style="color:var(--white)">Hablemos de<br>lo que necesitas</h2>
-          <div class="contact-info" style="margin-top:32px">
-            <div class="c-item">
-              <div class="c-icon">📧</div>
-              <div class="c-item-text">
-                <strong>Correo Electrónico</strong>
-                <span>info@alimentosmary.com</span>
-              </div>
-            </div>
-            <div class="c-item">
-              <div class="c-icon">🕐</div>
-              <div class="c-item-text">
-                <strong>Horario</strong>
-                <span>Lunes a Viernes: 8:00 AM – 5:00 PM</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="reveal" style="transition-delay:.2s">
-          <form class="c-form" id="contactForm" onsubmit="return false" novalidate>
-            <div class="c-row">
-              <div class="c-group">
-                <label for="cf-nombre">Nombre <span style="color:#E57373">*</span></label>
-                <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre completo" maxlength="80" autocomplete="name">
-                <span class="c-error" id="err-nombre"></span>
-              </div>
-              <div class="c-group">
-                <label for="cf-email">Correo Electrónico <span style="color:#E57373">*</span></label>
-                <input type="email" id="cf-email" name="email" placeholder="correo@ejemplo.com" maxlength="120" autocomplete="email">
-                <span class="c-error" id="err-email"></span>
-              </div>
-            </div>
-            <div class="c-group">
-              <label for="cf-asunto">Asunto <span style="color:#E57373">*</span></label>
-              <input type="text" id="cf-asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" maxlength="100">
-              <span class="c-char-count" id="char-asunto">0 / 100</span>
-              <span class="c-error" id="err-asunto"></span>
-            </div>
-            <div class="c-group">
-              <label for="cf-mensaje">Mensaje <span style="color:#E57373">*</span></label>
-              <textarea id="cf-mensaje" name="mensaje" placeholder="Cuéntanos más sobre tu consulta..." maxlength="1200"></textarea>
-              <span class="c-char-count" id="char-mensaje">0 / 1200</span>
-              <span class="c-error" id="err-mensaje"></span>
-            </div>
-            <!-- Estado del envío -->
-            <div id="form-status" style="display:none"></div>
-            <button class="c-submit" id="cf-btn" type="button" onclick="submitContactForm()">Enviar Mensaje →</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -364,7 +303,6 @@
             <li><a onclick="scrollToSection('about')">Sobre Nosotros</a></li>
             <li><a onclick="scrollToSection('trayectoria')">Trayectoria</a></li>
             <li><a onclick="scrollToSection('novedades')">Novedades</a></li>
-            <li><a onclick="scrollToSection('contact')">Contacto</a></li>
           </ul>
         </div>
         <div class="footer-col">
