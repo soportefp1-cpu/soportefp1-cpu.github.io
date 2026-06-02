@@ -1,20 +1,29 @@
 @font-face {
-  font-family: 'Frutiger';
-  src: url('../fonts/Frutiger-Bold.ttf') format('truetype');
-  font-weight: 700;
+  font-family: 'Roboto Condensed Light';
+  src: url('../fonts/RobotoCondensed-Light.ttf') format('truetype');
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: 'Frutiger';
-  src: url('../fonts/Frutiger-Black.ttf') format('truetype');
+  font-family: 'Roboto Condensed Bold';
+  src: url('../fonts/RobotoCondensed-Bold.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed Black';
+  src: url('../fonts/RobotoCondensed-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --red: #E1251B;
+  --red: #c70017;
   --red-dark: #B12028;
   --teal: #007960;
   --olive: #59611D;
@@ -30,19 +39,20 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; width: 100%; overflow-x: hidden; }
-body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; width: 100%; }
+body { font-family: 'Roboto Condensed Light', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; width: 100%; }
 img { max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
 /* ──── UTILITY ──── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .section-label {
+  font-family: 'Roboto Condensed Bold', sans-serif;
   display: inline-block;
   font-size: .72rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
   color: var(--red); margin-bottom: 14px;
 }
 .section-title {
-  font-family: 'Frutiger', 'Barlow Condensed', sans-serif;
+  font-family: 'Roboto Condensed Black', sans-serif;
   font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; text-transform: uppercase;
   line-height: 1.05; color: var(--text); margin-bottom: 16px;
 }
