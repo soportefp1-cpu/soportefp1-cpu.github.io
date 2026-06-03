@@ -361,7 +361,7 @@ footer { background: #111; padding: 64px 0 28px; }
 }
 .back-btn:hover { color: var(--white); }
 .back-btn::before { content: '←'; }
-.inner-page-title { font-family: 'Roboto Condensed Black', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: .95; }
+.inner-page-title { font-family: 'Roboto Condensed Black', sans-serif; font-size: clamp(2.5rem, 3vw, 5rem); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: .95; }
 .inner-page-sub { font-size: 1.05rem; color: rgba(255,255,255,.72); margin-top: 14px; max-width: 560px; line-height: 1.65; }
 .inner-content { padding: 72px 0; }
 
