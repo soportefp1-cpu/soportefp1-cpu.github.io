@@ -230,7 +230,7 @@ a { text-decoration: none; color: inherit; }
 .metric-card:hover .m-num,
 .metric-card:hover .m-label { color: var(--white); }
 .m-num {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Roboto Condensed Bold', sans-serif;
   font-size: clamp(3rem, 4vw, 4.5rem); font-weight: 900;
   color: var(--red); line-height: 1;
   transition: color .3s;
