@@ -212,7 +212,7 @@ a { text-decoration: none; color: inherit; }
   transition: transform .3s, box-shadow .3s;
 }
 .mvv-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,.1); }
-.mvv-card h4 { font-family: 'Frutiger', 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; color: var(--red); margin-bottom: 9px; letter-spacing: .05em; }
+.mvv-card h4 { font-family: 'Roboto Condensed Bold', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; color: var(--red); margin-bottom: 9px; letter-spacing: .05em; }
 .mvv-card p { font-size: .82rem; line-height: 1.65; color: var(--text-muted); }
 
 /* ──── TRAYECTORIA ──── */
@@ -230,7 +230,7 @@ a { text-decoration: none; color: inherit; }
 .metric-card:hover .m-num,
 .metric-card:hover .m-label { color: var(--white); }
 .m-num {
-  font-family: 'Roboto Condensed Bold', sans-serif;
+  font-family: 'Roboto Condensed Black', sans-serif;
   font-size: clamp(3rem, 4vw, 4.5rem); font-weight: 900;
   color: var(--red); line-height: 1;
   transition: color .3s;
@@ -359,7 +359,7 @@ footer { background: #111; padding: 64px 0 28px; }
 }
 .back-btn:hover { color: var(--white); }
 .back-btn::before { content: '←'; }
-.inner-page-title { font-family: 'Roboto Condensed Bold', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: .95; }
+.inner-page-title { font-family: 'Roboto Condensed Black', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: .95; }
 .inner-page-sub { font-size: 1.05rem; color: rgba(255,255,255,.72); margin-top: 14px; max-width: 560px; line-height: 1.65; }
 .inner-content { padding: 72px 0; }
 
