@@ -22,6 +22,8 @@
   font-display: swap;
 }
 
+.Bold { font-family: 'Roboto Condensed Bold', sans-serif; }
+
 :root {
   --red: #c70017;
   --red-dark: #B12028;
