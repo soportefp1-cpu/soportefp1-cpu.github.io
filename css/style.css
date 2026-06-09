@@ -72,7 +72,11 @@ a { text-decoration: none; color: inherit; }
   transition: background .4s, box-shadow .4s;
   background: transparent;
 }
-#navbar.solid { background: var(--red); box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+#navbar.solid       { background: var(--red);      box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+#navbar.solid-dark  { background: var(--red-dark); box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+#navbar.solid-teal  { background: var(--teal);     box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+#navbar.solid-green { background: var(--green);    box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+#navbar.solid-olive { background: var(--olive);    box-shadow: 0 2px 24px rgba(0,0,0,.25); }
 .nav-inner {
   width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 32px;
   display: flex; align-items: center; justify-content: space-between;
