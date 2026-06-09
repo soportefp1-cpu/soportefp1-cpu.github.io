@@ -222,7 +222,7 @@ a { text-decoration: none; color: inherit; }
 .mvv-card p { font-size: .82rem; line-height: 1.65; color: var(--text-muted); }
 
 /* ──── TRAYECTORIA ──── */
-.trayectoria { padding: 100px 0; background: var(--off-white); }
+.trayectoria { padding: 100px 0; background: var(--gray-light); }
 .tray-header { text-align: center; margin-bottom: 64px; }
 .tray-header .section-sub { margin: 0 auto; }
 .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
@@ -276,11 +276,12 @@ a { text-decoration: none; color: inherit; }
 .plantas-grid-bottom { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 24px; max-width: 680px; margin-left: auto; margin-right: auto; }
 
 /* ──── NOVEDADES ──── */
-.novedades-section { padding: 90px 0; background: var(--off-white); }
+.novedades-section { padding: 90px 0; background: #fff; }
 .novedades-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 16px; }
 .novedades-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 24px; }
 .novedad-card {
   background: var(--white); border-radius: 4px; overflow: hidden;
+  border: 1px solid var(--gray);
   cursor: pointer; transition: transform .35s, box-shadow .35s;
 }
 .novedad-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,0,0,.12); }
