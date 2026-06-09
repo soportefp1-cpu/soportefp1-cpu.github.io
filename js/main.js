@@ -1,18 +1,28 @@
 // ── ROUTING ── //
+const NAV_CLASSES = ['solid', 'solid-dark', 'solid-teal', 'solid-green', 'solid-olive'];
+const PLANT_NAV = {
+  'planta-mary':    'solid',
+  'planta-amapola': 'solid-dark',
+  'planta-corisa':  'solid-teal',
+  'planta-ianca':   'solid-green',
+  'planta-inalsa':  'solid-olive',
+};
+let currentPage = 'home';
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const el = document.getElementById('page-' + id);
   if (el) {
     el.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Re-run reveals for inner pages
     setTimeout(initReveal, 100);
   }
-  // Nav always solid on inner pages
+  currentPage = id;
+  navbar.classList.remove(...NAV_CLASSES);
   if (id === 'home') {
     updateNavSolid();
   } else {
-    document.getElementById('navbar').classList.add('solid');
+    navbar.classList.add(PLANT_NAV[id] || 'solid');
   }
 }
 
@@ -20,13 +30,12 @@ function scrollToSection(id) {
   const el = document.getElementById(id);
   if (!el) return;
   const navH = document.getElementById('navbar').offsetHeight;
-  // Offset extra por sección — ajusta cada número si necesitas más/menos aire
   const offsets = {
     about:       -25,
     trayectoria: -25,
     plantas:     -25,
     novedades:   -25,
-    contact:     -5   // contacto tiene menos padding, usa offset menor
+    contact:     -5
   };
   const offset = offsets[id] ?? 20;
   const top = el.getBoundingClientRect().top + window.scrollY - navH - offset;
@@ -36,6 +45,7 @@ function scrollToSection(id) {
 // ── NAV ──
 const navbar = document.getElementById('navbar');
 function updateNavSolid() {
+  if (currentPage !== 'home') return;
   navbar.classList.toggle('solid', window.scrollY > 60);
 }
 window.addEventListener('scroll', updateNavSolid);
